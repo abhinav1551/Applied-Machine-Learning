@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "========================================"
+echo "🚀 Running pre-commit tests..."
+echo "========================================"
+
+# Run the pytest suite
+pytest test.py
+
+# Check if pytest failed
+if [ $? -ne 0 ]; then
+    echo "❌ Tests failed! Commit aborted. Please fix the errors and try again."
+    exit 1
+fi
+
+echo "✅ All tests passed! Proceeding with commit."
+exit 0
